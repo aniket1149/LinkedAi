@@ -18,7 +18,7 @@ public class GenAiServiceImpl implements GenAiService {
 
 
     private final OpenAiChatModel model = OpenAiChatModel.builder()
-            .apiKey("sk-BxfDL0cf0V7itMYqPBYSUB-OmBvhSiP3NIH8w378PBT3BlbkFJmoFUaRRU74l5cWN2rVzGEFVLcbRkaUXz3N-732otMA")
+            .apiKey("demo")
             .modelName(OpenAiChatModelName.GPT_4_O)
             .build();
 
