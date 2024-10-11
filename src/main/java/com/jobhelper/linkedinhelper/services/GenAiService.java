@@ -11,6 +11,6 @@ import java.util.List;
 public interface GenAiService {
     String getChatGptResponse(UserReq userReq);
     String chatWithMemory(UserReq userReq);
-    LinkedinSections getLinkedinSections(UserReq userReq);
+    LinkedinSections getLinkedinSections(UserReq userReq) throws Exception;
     List<String> getRecommendedJobRole(UserReq userReq);
 }

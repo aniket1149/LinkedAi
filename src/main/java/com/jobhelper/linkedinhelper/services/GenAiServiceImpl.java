@@ -34,7 +34,7 @@ public class GenAiServiceImpl implements GenAiService {
     }
 
     @Override
-    public LinkedinSections getLinkedinSections(UserReq userReq) {
+    public LinkedinSections getLinkedinSections(UserReq userReq) throws Exception {
         return assistant.getLinkedinSections(Integer.valueOf(userReq.getUserId()), userReq.getResume());
     }
 

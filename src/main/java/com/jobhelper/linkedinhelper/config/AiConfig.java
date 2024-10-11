@@ -10,6 +10,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
+
 @Configuration
 public class AiConfig {
 
@@ -28,6 +32,7 @@ public class AiConfig {
        return OpenAiChatModel.builder()
                 .apiKey(openAiApiKey)
                 .organizationId("org-N3kLzCDDNnyAV7Ex19NS2GYN")
+                .timeout(Duration.of(60, ChronoUnit.SECONDS))
                 .modelName(OpenAiChatModelName.GPT_4_O)
                 .build();
     }

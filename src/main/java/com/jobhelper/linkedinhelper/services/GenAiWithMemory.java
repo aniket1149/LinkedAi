@@ -32,7 +32,7 @@ public interface GenAiWithMemory {
             Dont add number 1 and 2 just plain simple job role.
             After everything is done now the user wants to get a referral message template to connect to people working in the companies to get job referrals.
             this message should focus on the users skills and sound human written with humility.
-            After this you have to generate a referralMessage that will help user to get referrals for this roles keep the company name as [XYZ] as user can edit it accordingly.
+            After this you have to generate a referralMessage (Strict limit of 300 characters) that will help user to get referrals for this roles keep the company name as [XYZ] as user can edit it accordingly.
             here is the resume : {{usrResume}}
             """)
     LinkedinSections getLinkedinSections(@MemoryId int memoryId, @UserMessage @V("usrResume") String usrResume);

@@ -6,10 +6,7 @@ import com.jobhelper.linkedinhelper.services.GenAiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpResponse;
 import java.util.List;
@@ -17,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/jobhelp")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class GenController {
 
     private final GenAiService genAiService;
@@ -37,7 +35,14 @@ public class GenController {
 
     @PostMapping("/lnkdsect")
     public ResponseEntity<LinkedinSections> linkedinSections(@RequestBody UserReq userReq) {
-        return  ResponseEntity.ok(genAiService.getLinkedinSections(userReq));
+        try{
+        return  ResponseEntity.ok()
+                .header("Content-Type", "application/json")
+                .body(genAiService.getLinkedinSections(userReq)
+                );
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(null);
+        }
     }
 
     @PostMapping("/jobRoles")
